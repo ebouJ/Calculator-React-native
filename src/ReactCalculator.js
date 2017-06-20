@@ -13,7 +13,7 @@ const inputButtons = [
     [1, 2, 3, '/'],
     [4, 5, 6, '*'],
     [7, 8, 9, '-'],
-    [0, '.', '='],
+    [0,'√', '.', '='],
 
 ];
 class ReactCalculator extends Component {
@@ -113,6 +113,15 @@ class ReactCalculator extends Component {
                              this.setState({
                                 inputValue: this.state.inputValue*-1
                              });
+                             break;
+                        case '√':
+                              if(this.state.inputValue < 0){
+                                alert('The square root of negative numbers is not defined')
+                                return;
+                              }
+                              this.setState({
+                                inputValue: (Math.sqrt(this.state.inputValue))
+                              });
         }
     }
 }
